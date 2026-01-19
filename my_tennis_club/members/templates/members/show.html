@@ -84,9 +84,9 @@
     </div>
 
     <div>
-        <a href="{% url 'member_list' %}" class="btn btn-secondary">← Back to List</a>
-        <a href="{% url 'member_update' member.pk %}" class="btn">✏️ Edit</a>
-        <a href="{% url 'member_delete' member.pk %}" class="btn btn-danger">🗑️ Delete</a>
+        <a href="{% url 'members:list' %}" class="btn btn-secondary">← Back to List</a>
+        <a href="{% url 'members:update' member.pk %}" class="btn">✏️ Edit</a>
+        <a href="{% url 'members:delete' member.pk %}" class="btn btn-danger">🗑️ Delete</a>
     </div>
 </body>
 </html>

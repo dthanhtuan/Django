@@ -42,7 +42,7 @@ def member_create(request):
         if form.is_valid():
             member = form.save()
             messages.success(request, f'Member {member} created successfully!')
-            return redirect('member_detail', pk=member.pk)
+            return redirect('members:detail', pk=member.pk)
     else:
         form = MemberForm()
 
@@ -64,7 +64,7 @@ def member_update(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, f'Member {member} updated successfully!')
-            return redirect('member_detail', pk=member.pk)
+            return redirect('members:detail', pk=member.pk)
     else:
         form = MemberForm(instance=member)
 
@@ -85,7 +85,7 @@ def member_delete(request, pk):
         member_name = str(member)
         member.delete()
         messages.success(request, f'Member {member_name} deleted successfully!')
-        return redirect('member_list')
+        return redirect('members:list')
 
     context = {'member': member}
     return render(request, 'members/confirm_delete.html', context)

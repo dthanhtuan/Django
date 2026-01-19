@@ -61,11 +61,36 @@ Read in this order:
 
 ---
 
+### 4. [RELATIONSHIPS-GUIDE.md](RELATIONSHIPS-GUIDE.md) ⭐ NEW!
+**Model Relationships Complete Guide** (30-45 min read)
+
+**Contains:**
+- **Summary of changes** - What models were added
+- **belongs_to** (ForeignKey) - Many-to-One relationships
+- **has_one** (OneToOneField) - One-to-One relationships  
+- **has_many** (reverse ForeignKey) - One-to-Many relationships
+- **has_many :through** (ManyToManyField) - Many-to-Many relationships
+- **Querying relationships** - Forward and reverse queries
+- **Usage examples** - Code snippets to get started
+- **Real examples** - Team, Member, Profile models in your project
+- **Rails comparisons** - For every relationship type
+
+**Perfect for:** Understanding Django model relationships
+
+**Key sections:**
+- All relationship types with working examples
+- on_delete options explained
+- select_related vs prefetch_related
+- Your project's Team → Members → Profile relationships
+- Testing guide and quick reference
+
+---
+
 ## 🚀 Quick Start (3 Steps)
 
 ### 1. Start the Server
 ```bash
-cd /home/installer/Documents/Personal/Django/my_tennis_club
+cd Django/my_tennis_club
 python manage.py runserver
 ```
 
@@ -91,6 +116,9 @@ python manage.py createsuperuser
 | **CRUD operations?** | 01-DJANGO-FOR-RAILS-DEVELOPERS.md | CRUD Operations |
 | **AJAX handling?** | 01-DJANGO-FOR-RAILS-DEVELOPERS.md | AJAX Requests |
 | **Visual diagrams?** | 02-MODELS-FORMS-ADMIN.md | Visual Guide |
+| **belongs_to, has_one, has_many?** | RELATIONSHIPS-GUIDE.md | All sections |
+| **ForeignKey, OneToOne?** | RELATIONSHIPS-GUIDE.md | Relationship types |
+| **What models were added?** | RELATIONSHIPS-GUIDE.md | Summary at top |
 
 ---
 
@@ -103,10 +131,11 @@ my_tennis_club/
 │   ├── README.md                  ← This file
 │   ├── 01-DJANGO-FOR-RAILS-DEVELOPERS.md
 │   ├── 02-MODELS-FORMS-ADMIN.md
-│   └── 03-GETTING-STARTED.md
+│   ├── 03-GETTING-STARTED.md
+│   └── RELATIONSHIPS-GUIDE.md     ← Model relationships (complete)
 │
 ├── members/                       ← Members app
-│   ├── models.py                  # Database models
+│   ├── models.py                  # Team, Member, Profile models
 │   ├── forms.py                   # Form classes
 │   ├── views.py                   # Request handlers
 │   ├── urls.py                    # URL routing

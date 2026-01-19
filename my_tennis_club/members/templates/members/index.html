@@ -78,7 +78,7 @@
         {% endfor %}
     {% endif %}
 
-    <a href="{% url 'member_create' %}" class="btn">➕ New Member</a>
+    <a href="{% url 'members:create' %}" class="btn">➕ New Member</a>
 
     <!-- Regular HTML Table -->
     <h2>Members List</h2>
@@ -102,15 +102,15 @@
                 <td>{{ member.phone|default:"N/A" }}</td>
                 <td>{{ member.joined_date|date:"M d, Y" }}</td>
                 <td>
-                    <a href="{% url 'member_detail' member.pk %}">View</a> |
-                    <a href="{% url 'member_update' member.pk %}">Edit</a> |
-                    <a href="{% url 'member_delete' member.pk %}" style="color: red;">Delete</a>
+                    <a href="{% url 'members:detail' member.pk %}">View</a> |
+                    <a href="{% url 'members:update' member.pk %}">Edit</a> |
+                    <a href="{% url 'members:delete' member.pk %}" style="color: red;">Delete</a>
                 </td>
             </tr>
             {% empty %}
             <tr>
                 <td colspan="6" style="text-align: center;">
-                    No members yet. <a href="{% url 'member_create' %}">Add one!</a>
+                    No members yet. <a href="{% url 'members:create' %}">Add one!</a>
                 </td>
             </tr>
             {% endfor %}

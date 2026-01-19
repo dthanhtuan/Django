@@ -17,7 +17,7 @@ Your Django application is fully configured with:
 
 ### Step 1: Start the Server
 ```bash
-cd /home/installer/Documents/Personal/Django/my_tennis_club
+cd Django/my_tennis_club
 python manage.py runserver
 ```
 
@@ -771,7 +771,7 @@ All routes configured for both HTML and AJAX endpoints
 
 ### Start the Server
 ```bash
-cd /home/installer/Documents/Personal/Django/my_tennis_club
+cd Django/my_tennis_club
 python manage.py runserver
 ```
 
