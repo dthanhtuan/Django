@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ member }} - Tennis Club</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .member-detail {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .detail-row {
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        .label {
+            font-weight: bold;
+            color: #495057;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 5px 10px 0;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .btn-secondary {
+            background-color: #95a5a6;
+        }
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+        .btn-danger {
+            background-color: #e74c3c;
+        }
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎾 Member Details</h1>
+
+    <div class="member-detail">
+        <div class="detail-row">
+            <span class="label">ID:</span>
+            {{ member.id }}
+        </div>
+        <div class="detail-row">
+            <span class="label">Name:</span>
+            {{ member.firstname }} {{ member.lastname }}
+        </div>
+        <div class="detail-row">
+            <span class="label">Email:</span>
+            {{ member.email }}
+        </div>
+        <div class="detail-row">
+            <span class="label">Phone:</span>
+            {{ member.phone|default:"Not provided" }}
+        </div>
+        <div class="detail-row">
+            <span class="label">Joined Date:</span>
+            {{ member.joined_date|date:"F d, Y" }}
+        </div>
+    </div>
+
+    <div>
+        <a href="{% url 'member_list' %}" class="btn btn-secondary">← Back to List</a>
+        <a href="{% url 'member_update' member.pk %}" class="btn">✏️ Edit</a>
+        <a href="{% url 'member_delete' member.pk %}" class="btn btn-danger">🗑️ Delete</a>
+    </div>
+</body>
+</html>
+
