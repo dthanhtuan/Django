@@ -24,25 +24,53 @@ python manage.py createsuperuser
 
 **All documentation is in the [`docs/`](docs/) folder.**
 
-Read in this order:
+### Quick Links
 
-1. **[01-DJANGO-FOR-RAILS-DEVELOPERS.md](docs/01-DJANGO-FOR-RAILS-DEVELOPERS.md)** - Complete Django guide
-2. **[02-MODELS-FORMS-ADMIN.md](docs/02-MODELS-FORMS-ADMIN.md)** - Models, Forms, Admin deep dive
-3. **[03-GETTING-STARTED.md](docs/03-GETTING-STARTED.md)** - Quick start & practical guide
+1. **[01-DJANGO-FOR-RAILS-DEVELOPERS.md](docs/01-DJANGO-FOR-RAILS-DEVELOPERS.md)** ⭐ START HERE
+   - Complete Django guide for Rails developers
+   - Django vs Rails comparison
+   - CRUD operations & AJAX handling
 
-See [docs/README.md](docs/README.md) for the complete documentation index.
+2. **[RELATIONSHIPS-GUIDE.md](docs/RELATIONSHIPS-GUIDE.md)** ⭐ IMPORTANT
+   - Model relationships (belongs_to, has_one, has_many)
+   - ForeignKey, OneToOneField, ManyToManyField
+   - Working examples with Team, Member, Profile models
+
+3. **[02-MODELS-FORMS-ADMIN.md](docs/02-MODELS-FORMS-ADMIN.md)**
+   - Models, Forms, Admin deep dive
+   - Meta class explained
+   - Visual diagrams
+
+4. **[03-GETTING-STARTED.md](docs/03-GETTING-STARTED.md)**
+   - Quick start & practical guide
+   - Testing CRUD and AJAX
+
+**See [docs/README.md](docs/README.md) for the complete documentation guide.**
 
 ---
 
 ## ✨ Features
 
-- ✅ Complete CRUD operations (Create, Read, Update, Delete)
+**CRUD & AJAX:**
+- ✅ Complete CRUD operations (NEW, EDIT, INDEX, UPDATE, DELETE, CREATE)
 - ✅ AJAX/JSON API endpoints
-- ✅ Django Admin interface (fully configured)
 - ✅ Form validation and error handling
 - ✅ Bootstrap-ready templates
 - ✅ Flash messages
-- ✅ Test data included (8 members)
+
+**Model Relationships:**
+- ✅ **belongs_to** - Member belongs to Team (ForeignKey)
+- ✅ **has_one** - Member has one Profile (OneToOneField)
+- ✅ **has_many** - Team has many Members (reverse ForeignKey)
+
+**Admin Panel:**
+- ✅ Django Admin interface (fully configured)
+- ✅ Custom admin for Team, Member, Profile
+- ✅ Search, filters, and inline editing
+
+**Data:**
+- ✅ Test data included (Teams, Members, Profiles)
+- ✅ Migration files included
 
 ---
 
@@ -52,12 +80,13 @@ See [docs/README.md](docs/README.md) for the complete documentation index.
 my_tennis_club/
 ├── docs/                          # Complete documentation
 │   ├── README.md                  # Documentation index
-│   ├── 01-DJANGO-FOR-RAILS-DEVELOPERS.md
-│   ├── 02-MODELS-FORMS-ADMIN.md
-│   └── 03-GETTING-STARTED.md
+│   ├── 01-DJANGO-FOR-RAILS-DEVELOPERS.md    # Django for Rails devs
+│   ├── 02-MODELS-FORMS-ADMIN.md              # Models, Forms, Admin
+│   ├── 03-GETTING-STARTED.md                 # Quick start guide
+│   └── RELATIONSHIPS-GUIDE.md                # Model relationships ⭐
 │
 ├── members/                       # Members app
-│   ├── models.py                  # Member model
+│   ├── models.py                  # Team, Member, Profile models
 │   ├── forms.py                   # MemberForm
 │   ├── views.py                   # CRUD + AJAX views
 │   ├── urls.py                    # URL patterns
@@ -121,12 +150,26 @@ python manage.py test                   # Run tests
 
 ## 🎓 What You'll Learn
 
+**Core Django:**
 ✅ Django project structure  
-✅ Models with Meta class  
-✅ Forms and validation  
-✅ CRUD operations  
+✅ Projects vs Apps concept  
+✅ MVT pattern (Models, Views, Templates)  
+✅ How Django loads files  
+
+**CRUD & Forms:**
+✅ Complete CRUD operations (NEW, EDIT, INDEX, UPDATE, DELETE, CREATE)  
 ✅ AJAX handling  
-✅ Admin interface  
+✅ Forms and validation  
+
+**Model Relationships:**
+✅ belongs_to (ForeignKey)  
+✅ has_one (OneToOneField)  
+✅ has_many (reverse ForeignKey)  
+✅ has_many :through (ManyToManyField)  
+
+**Admin & More:**
+✅ Models with Meta class  
+✅ Admin interface customization  
 ✅ URL routing  
 ✅ Templates  
 
