@@ -8,6 +8,22 @@ Complete documentation for learning Django, specifically designed for Rails deve
 
 Read in this recommended order:
 
+### 0. [DJANGO-VS-RAILS-RELATIONSHIPS.md](DJANGO-VS-RAILS-RELATIONSHIPS.md) 🚨 **READ THIS FIRST!**
+
+**Critical Difference: One-Side Definitions** (5 min read)
+
+**What's inside:**
+- The #1 thing that confuses Rails developers
+- Why relationships are defined on ONE side only in Django
+- Where's the ManyToManyField? (Answer: only in ONE model!)
+- Quick reference table
+
+**Best for:** Understanding the biggest difference between Rails and Django
+
+**⚠️ Must read before anything else!**
+
+---
+
 ### 1. [01-DJANGO-FOR-RAILS-DEVELOPERS.md](01-DJANGO-FOR-RAILS-DEVELOPERS.md) ⭐ **START HERE**
 
 **Complete Django Guide** (30-60 min read)

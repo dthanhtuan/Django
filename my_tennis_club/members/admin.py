@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Member, Team, Profile
+from .models import Member, Team, Profile, Tournament
 
 
 @admin.register(Team)
@@ -18,6 +18,26 @@ class TeamAdmin(admin.ModelAdmin):
     member_count.short_description = 'Members'
 
 
+@admin.register(Tournament)
+class TournamentAdmin(admin.ModelAdmin):
+    """
+    Admin interface for Tournament model.
+    Demonstrates ManyToMany relationship management.
+
+    Note: In Rails you'd define the relationship on BOTH sides.
+    In Django, it's defined ONLY on Member model, but works from both sides!
+    """
+    list_display = ['id', 'name', 'location', 'start_date', 'end_date', 'participant_count']
+    list_filter = ['start_date', 'location']
+    search_fields = ['name', 'location']
+    ordering = ['start_date', 'name']
+
+    def participant_count(self, obj):
+        """Display number of participants in the tournament."""
+        return obj.members.count()
+    participant_count.short_description = 'Participants'
+
+
 @admin.register(Member)
 class MemberAdmin(admin.ModelAdmin):
     """
@@ -31,6 +51,7 @@ class MemberAdmin(admin.ModelAdmin):
     search_fields = ['firstname', 'lastname', 'email']
     ordering = ['lastname', 'firstname']
     readonly_fields = ['joined_date']
+    filter_horizontal = ['tournaments']  # Nice UI for ManyToMany
 
     fieldsets = (
         ('Personal Information', {
@@ -41,6 +62,9 @@ class MemberAdmin(admin.ModelAdmin):
         }),
         ('Team Assignment', {
             'fields': ('team',)
+        }),
+        ('Tournaments', {
+            'fields': ('tournaments',)
         }),
         ('Metadata', {
             'fields': ('joined_date',)
