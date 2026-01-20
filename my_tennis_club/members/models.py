@@ -192,3 +192,83 @@ class Profile(models.Model):
         verbose_name = 'Member Profile'
         verbose_name_plural = 'Member Profiles'
 
+
+class Match(models.Model):
+    """
+    Match model representing a tennis match between two members.
+
+    Demonstrates MULTIPLE FOREIGNKEYS TO THE SAME MODEL.
+
+    CRITICAL: When you have multiple ForeignKeys pointing to the same model,
+    each MUST have a unique related_name to avoid conflicts.
+
+    Rails equivalent:
+        class Match < ApplicationRecord
+          belongs_to :player1, class_name: 'Member'
+          belongs_to :player2, class_name: 'Member'
+          belongs_to :winner, class_name: 'Member', optional: true
+        end
+
+        class Member < ApplicationRecord
+          has_many :matches_as_player1, class_name: 'Match', foreign_key: 'player1_id'
+          has_many :matches_as_player2, class_name: 'Match', foreign_key: 'player2_id'
+          has_many :won_matches, class_name: 'Match', foreign_key: 'winner_id'
+        end
+
+    Django approach:
+        Define each ForeignKey with unique related_name - Django creates reverses automatically!
+    """
+    date = models.DateField(help_text="Match date")
+    location = models.CharField(max_length=255, blank=True, help_text="Match location")
+
+    # Multiple ForeignKeys to Member - each needs UNIQUE related_name
+    player1 = models.ForeignKey(
+        Member,
+        on_delete=models.CASCADE,
+        related_name='matches_as_player1',  # ← UNIQUE related_name
+        help_text="First player"
+    )
+
+    player2 = models.ForeignKey(
+        Member,
+        on_delete=models.CASCADE,
+        related_name='matches_as_player2',  # ← DIFFERENT from player1
+        help_text="Second player"
+    )
+
+    winner = models.ForeignKey(
+        Member,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='won_matches',  # ← DIFFERENT from both above
+        help_text="Match winner (optional until match is complete)"
+    )
+
+    # Match details
+    player1_score = models.IntegerField(null=True, blank=True, help_text="Player 1 score")
+    player2_score = models.IntegerField(null=True, blank=True, help_text="Player 2 score")
+    completed = models.BooleanField(default=False, help_text="Has match been completed?")
+
+    def __str__(self):
+        return f"{self.player1} vs {self.player2} on {self.date}"
+
+    class Meta:
+        ordering = ['-date']
+        verbose_name = 'Match'
+        verbose_name_plural = 'Matches'
+
+    def save(self, *args, **kwargs):
+        """
+        Validate that player1 and player2 are different members.
+        """
+        if self.player1 == self.player2:
+            raise ValueError("A member cannot play against themselves!")
+
+        # If winner is set, ensure it's one of the players
+        if self.winner and self.winner not in [self.player1, self.player2]:
+            raise ValueError("Winner must be one of the players!")
+
+        super().save(*args, **kwargs)
+
+

@@ -34,45 +34,36 @@ python manage.py createsuperuser
 
 ## 📚 Documentation for Rails Developers
 
-**All documentation is written specifically for Rails developers.**
+**All documentation is organized by topic in the [`docs/`](docs/) folder.**
 
-Every guide uses Rails as the starting point and shows you the Django equivalent. You'll see side-by-side comparisons, Rails-to-Django translations, and explanations of why Django does things differently.
+### 📖 Documentation Sections
 
-### Essential Reading (Start Here!)
+**🚀 [Getting Started](docs/getting-started/)** - Begin your Django journey
+- [Django for Rails Developers](docs/getting-started/01-DJANGO-FOR-RAILS-DEVELOPERS.md) - Main guide
+- [Quick Start](docs/getting-started/03-GETTING-STARTED.md) - Get the app running
 
-0. **[DJANGO-VS-RAILS-RELATIONSHIPS.md](docs/DJANGO-VS-RAILS-RELATIONSHIPS.md)** 🚨 **READ THIS FIRST!**
-   - The #1 difference between Rails and Django
-   - Why relationships are defined on ONE side only (not both like Rails)
-   - Saves you hours of confusion (5 minute read)
+**🔗 [Relationships](docs/relationships/)** - Understanding Django relationships  
+- [Django vs Rails Relationships](docs/relationships/DJANGO-VS-RAILS-RELATIONSHIPS.md) 🚨 **Read this first!**
+- [Complete Relationships Guide](docs/relationships/RELATIONSHIPS-GUIDE.md)
+- [Multiple ForeignKeys Pattern](docs/relationships/MULTIPLE-FOREIGNKEYS-SAME-MODEL.md)
 
-1. **[01-DJANGO-FOR-RAILS-DEVELOPERS.md](docs/01-DJANGO-FOR-RAILS-DEVELOPERS.md)** ⭐ **MAIN GUIDE**
-   - Complete Django guide with Rails comparisons throughout
-   - Django vs Rails side-by-side for every concept
-   - CRUD operations & AJAX handling
+**📊 [ORM & Queries](docs/orm-queries/)** - Querying data
+- [Django ORM vs Rails Active Record](docs/orm-queries/DJANGO-ORM-VS-RAILS-ACTIVE-RECORD.md) - Complete comparison
 
-2. **[DJANGO-ORM-VS-RAILS-ACTIVE-RECORD.md](docs/DJANGO-ORM-VS-RAILS-ACTIVE-RECORD.md)** 📊 **QUERY REFERENCE**
-   - Every Rails query translated to Django
-   - `User.where()` → `User.objects.filter()`
-   - Complete comparison table for quick lookup
+**🎓 [Advanced Topics](docs/advanced/)** - Deep dive
+- [Models, Forms & Admin](docs/advanced/02-MODELS-FORMS-ADMIN.md) - Meta class, forms, admin
 
-### Deep Dive Guides
+### Quick Links
 
-3. **[RELATIONSHIPS-GUIDE.md](docs/RELATIONSHIPS-GUIDE.md)** ⭐ **RELATIONSHIPS**
-   - `belongs_to`, `has_one`, `has_many` in Django
-   - ForeignKey, OneToOneField, ManyToManyField explained
-   - Working examples with Team, Member, Profile, Tournament
+| I Want To... | Read This |
+|-------------|-----------|
+| **Start learning Django** | [Django for Rails Developers](docs/getting-started/01-DJANGO-FOR-RAILS-DEVELOPERS.md) |
+| **Understand the #1 difference** | [Django vs Rails Relationships](docs/relationships/DJANGO-VS-RAILS-RELATIONSHIPS.md) |
+| **Run the app now** | [Quick Start Guide](docs/getting-started/03-GETTING-STARTED.md) |
+| **Translate a Rails query** | [ORM Comparison](docs/orm-queries/DJANGO-ORM-VS-RAILS-ACTIVE-RECORD.md) |
+| **Learn all relationship types** | [Relationships Guide](docs/relationships/RELATIONSHIPS-GUIDE.md) |
 
-4. **[02-MODELS-FORMS-ADMIN.md](docs/02-MODELS-FORMS-ADMIN.md)** 🔧 **MODELS & ADMIN**
-   - Django's Meta class (no Rails equivalent)
-   - Form classes vs Rails form helpers
-   - Built-in admin (no ActiveAdmin gem needed!)
-
-5. **[03-GETTING-STARTED.md](docs/03-GETTING-STARTED.md)** 🚀 **HANDS-ON**
-   - Get the app running in 3 steps
-   - Test CRUD and AJAX features
-   - Common Django commands
-
-**See [docs/README.md](docs/README.md) for the complete learning path.**
+**See [docs/README.md](docs/README.md) for the complete documentation index and learning paths.**
 
 ---
 
